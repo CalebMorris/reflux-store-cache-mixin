@@ -1,11 +1,11 @@
 {
-  "name": "es6-package-boilerplate",
-  "version": "0.0.2",
-  "description": "Module boilerplate for es6",
+  "name": "reflux-store-cache-mixin",
+  "version": "0.0.1",
+  "description": "Reflux store chaching mixin to reduce unnecessary calls",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/calebmorris/es6-package-boilerplate"
+    "url": "https://github.com/calebmorris/reflux-store-cache-mixin"
   },
   "scripts": {
     "clean": "rm -Rf ./dist ./coverage",
