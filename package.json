@@ -8,9 +8,9 @@
     "url": "https://github.com/calebmorris/es6-package-boilerplate"
   },
   "scripts": {
-    "postinstall": "npm run dist",
     "clean": "rm -Rf ./dist ./coverage",
-    "dist": "npm run clean && ./node_modules/.bin/babel src/ --modules common --out-dir dist",
+    "build": "npm run clean && npm run test && npm run lint && npm run dist",
+    "dist": "./node_modules/.bin/babel src/ --modules common --out-dir dist",
     "test": "./node_modules/.bin/mocha --recursive --compilers js:babel/register",
     "lint": "./node_modules/.bin/eslint --ext .js .",
     "lint-quiet": "./node_modules/.bin/eslint --ext .js --quiet .",
