@@ -32,17 +32,20 @@ export default Reflux.createStore({
   mixins : [ StoreCacheMixin ],
 
   onFetch() {
-    const data = this.fetchData('data', '*');
+      this.loadData('data', '*', (data, saveNewData) => {
 
-    if (! data) {
-      return fetchData()
-        .then((nextData) => {
-          this.data = nextData;
-          return this.trigger(this.data);
-        });
-    }
+        if (! data) {
+          return fetchData()
+            .tap(saveNewData)
+            .then((nextData) => {
+              this.data = nextData;
+              return this.trigger(this.data);
+            });
+        }
 
-    return this.trigger(this.data);
+        return this.trigger(this.data);
+
+      });
   },
 });
 
