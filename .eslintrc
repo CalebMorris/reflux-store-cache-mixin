@@ -19,7 +19,7 @@
     "superInFunctions": true,
     "templateStrings": true,
     "unicodeCodePointEscapes": true,
-    "globalReturn": false,
+    "globalReturn": false
   },
   "rules": {
 
@@ -94,6 +94,6 @@
     "max-len": [ 2, 100 ],
     "max-params": [ 2, 4 ],
     "max-statements": [ 2, 15 ],
-    "no-bitwise": [ 2 ],
+    "no-bitwise": [ 2 ]
   }
 }
