@@ -38,7 +38,7 @@ export default Reflux.createStore({
       return fetchData()
         .then((nextData) => {
           this.data = nextData;
-          return this.trigger(this.getInitialState());
+          return this.trigger(this.data);
         });
     }
 
