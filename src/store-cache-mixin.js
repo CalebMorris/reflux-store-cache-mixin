@@ -1,6 +1,6 @@
 import { Map } from 'immutable';
 
-import { getTimestamp, hasExpired } from 'lib/cache';
+import { getTimestamp, hasExpired } from './cache';
 
 // Key not possible from plain JS
 const TIMESTAMPKEY = { _timestamp : '_timestamp' };
