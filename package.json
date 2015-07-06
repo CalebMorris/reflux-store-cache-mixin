@@ -1,6 +1,6 @@
 {
   "name": "reflux-store-cache-mixin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Reflux store chaching mixin to reduce unnecessary calls",
   "main": "dist/index.js",
   "repository": {
