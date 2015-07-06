@@ -22,8 +22,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.9.21",
-    "lodash": "^3.6.0"
+    "immutable": "^3.7.4",
+    "moment": "^2.10.3"
   },
   "devDependencies": {
     "babel": "^4.7.16",
