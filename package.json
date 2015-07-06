@@ -22,11 +22,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "babel": "^4.7.16",
     "bluebird": "^2.9.21",
     "lodash": "^3.6.0"
   },
   "devDependencies": {
+    "babel": "^4.7.16",
     "chai": "^2.3.0",
     "eslint": "^0.24.0",
     "istanbul": "^0.3.13",
