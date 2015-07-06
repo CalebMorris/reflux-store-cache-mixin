@@ -2,10 +2,10 @@
 
 var Map = require("immutable").Map;
 
-var _libCache = require("lib/cache");
+var _cache = require("./cache");
 
-var getTimestamp = _libCache.getTimestamp;
-var hasExpired = _libCache.hasExpired;
+var getTimestamp = _cache.getTimestamp;
+var hasExpired = _cache.hasExpired;
 
 // Key not possible from plain JS
 var TIMESTAMPKEY = { _timestamp: "_timestamp" };
