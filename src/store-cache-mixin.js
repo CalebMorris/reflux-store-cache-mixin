@@ -129,6 +129,29 @@ const StoreCacheMixin = {
     return oldData;
   },
 
+  /**
+   * Simplified usage
+   * @param  {*} dataKey - Which data to fetch from
+   * @param  {*} instanceKey - Which instance for that data to fetch
+   * @param  {Func<Obj?,Func<Objc>>} handler - Loader and saver callback
+   */
+  loadData(dataKey, instanceKey, handler) {
+
+    if (! _.isFunction(handler)) {
+      throw new Error('Invalid handler: must be a function');
+    }
+
+    const data = this.fetchData(dataKey, instanceKey);
+
+
+    if (! data) {
+      return handler(null, this.storeData.bind(this, dataKey, instanceKey));
+    }
+
+    return handler(data, _.noop);
+
+  },
+
 };
 
 export default StoreCacheMixin;
