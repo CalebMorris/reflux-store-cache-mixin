@@ -1,15 +1,16 @@
-import { Map } from 'immutable';
+import _ from 'lodash';
+import Immutable from 'immutable';
 
-import { getTimestamp, hasExpired } from './cache';
+import { getTimestamp, hasExpired } from './util';
 
 // Key not possible from plain JS
-const TIMESTAMPKEY = { _timestamp : '_timestamp' };
-const DATAKEY = { _data : '_data' };
+const TIMESTAMPKEY = '__timestamp';
+const DATAKEY = '__data';
 
 const StoreCacheMixin = {
 
   init() {
-    this.cache = new Map();
+    this.cache = new Immutable.Map();
   },
 
   /*
@@ -29,6 +30,9 @@ const StoreCacheMixin = {
     if (! dataKey || ! instanceKey) {
       throw new Error('Invalid usage: function(dataKey, instanceKey)');
     }
+
+    dataKey = Immutable.fromJS(dataKey);
+    instanceKey = Immutable.fromJS(instanceKey);
 
     if (
       this.cache.has(dataKey) &&
@@ -54,7 +58,10 @@ const StoreCacheMixin = {
       throw new Error('Invalid usage: function(dataKey, instanceKey, data)');
     }
 
-    const newData = new Map()
+    dataKey = Immutable.fromJS(dataKey);
+    instanceKey = Immutable.fromJS(instanceKey);
+
+    const newData = new Immutable.Map()
       .set(DATAKEY, data)
       .set(TIMESTAMPKEY, getTimestamp());
 
@@ -71,7 +78,7 @@ const StoreCacheMixin = {
     }
 
     if (! this.cache.has(dataKey)) {
-      this.cache = this.cache.set(dataKey, new Map());
+      this.cache = this.cache.set(dataKey, new Immutable.Map());
     }
 
     this.cache = this.cache
@@ -94,6 +101,9 @@ const StoreCacheMixin = {
       throw new Error('Invalid usage: function(dataKey, instanceKey, data)');
     }
 
+    dataKey = Immutable.fromJS(dataKey);
+    instanceKey = Immutable.fromJS(instanceKey);
+
     let oldData = null;
 
     if (
@@ -107,7 +117,7 @@ const StoreCacheMixin = {
     }
 
     if (! this.cache.has(dataKey)) {
-      this.cache = this.cache.set(dataKey, new Map());
+      this.cache = this.cache.set(dataKey, new Immutable.Map());
     }
 
     this.cache = this.cache
