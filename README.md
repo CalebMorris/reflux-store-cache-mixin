@@ -1,6 +1,6 @@
 # reflux-store-cache-mixin
 
-Reflux mixin for chaching data.
+Reflux mixin for caching data.
 
 Main usage is to reduce network calls for slowly changing data
 
@@ -31,7 +31,7 @@ export default Reflux.createStore({
 
   mixins : [ StoreCacheMixin ],
 
-  onFetchAll() {
+  onFetch() {
     const data = this.fetchData('data', '*');
 
     if (! data) {
